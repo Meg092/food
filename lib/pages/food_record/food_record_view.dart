@@ -11,8 +11,8 @@ class FoodRecordView extends GetView<FoodRecordLogic> {
     return Scaffold(
       body: Center(
         child: Obx(
-          () => controller.keeling.value
-              ? const CircularProgressIndicator(color: Colors.blueAccent)
+          () => controller.monahan.value
+              ? const CircularProgressIndicator(color: Colors.orange)
               : buildError(),
         ),
       ),
@@ -26,7 +26,7 @@ class FoodRecordView extends GetView<FoodRecordLogic> {
         children: [
           IconButton(
             onPressed: () {
-              controller.brnyj();
+              controller.folvwaik();
             },
             icon: const Icon(
               Icons.restart_alt,

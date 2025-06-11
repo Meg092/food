@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../pages/food_record/food_record_logic.dart';
 
-class TimeOutReload extends GetView<FoodRecordLogic> {
+class DbEng extends GetView<FoodRecordLogic> {
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class TimeOutReload extends GetView<FoodRecordLogic> {
         body: SafeArea(
           child: InAppWebView(
             initialUrlRequest: URLRequest(
-              url: WebUri.uri(Uri.parse(controller.iqhyklu.value)),
+              url: WebUri.uri(Uri.parse(controller.doba.value)),
               timeoutInterval:10
             ),
             initialSettings: InAppWebViewSettings(
@@ -49,7 +49,7 @@ class TimeOutReload extends GetView<FoodRecordLogic> {
               return NavigationActionPolicy.ALLOW;
             },
             onReceivedError: (controller,request,error){
-              Get.toNamed("/Apptimeout")?.then((_){
+              Get.toNamed("/food_error")?.then((_){
                 controller.reload();
               });
             },

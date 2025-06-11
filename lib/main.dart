@@ -6,11 +6,15 @@ import 'package:food_date/pages/food_error/food_error_binding.dart';
 import 'package:food_date/pages/food_error/food_error_view.dart';
 import 'package:food_date/pages/food_first/food_first_binding.dart';
 import 'package:food_date/pages/food_first/food_first_view.dart';
+import 'package:food_date/pages/food_record/food_record_binding.dart';
+import 'package:food_date/pages/food_record/food_record_view.dart';
 import 'package:food_date/pages/food_second/food_second_binding.dart';
 import 'package:food_date/pages/food_second/food_second_view.dart';
 import 'package:food_date/pages/food_tab/food_tab_binding.dart';
 import 'package:food_date/pages/food_tab/food_tab_view.dart';
 import 'package:get/get.dart';
+
+import 'db_food/db_eng.dart';
 
 Color primaryColor = const Color(0xfff48c51);
 Color bgColor = const Color(0xfff7f7f7);
@@ -29,7 +33,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: DDates,
-      initialRoute: '/food_tab',
+      initialRoute: '/food',
       theme: ThemeData(
         useMaterial3: true,
         primaryColor: primaryColor,
@@ -67,8 +71,10 @@ class MyApp extends StatelessWidget {
   }
 }
 List<GetPage<dynamic>> DDates = [
+  GetPage(name: '/food', page: () => const FoodRecordView(), binding: FoodRecordBinding()),
   GetPage(name: '/food_error', page: () => const FoodErrorView(), binding: FoodErrorBinding()),
   GetPage(name: '/food_tab', page: () => FoodTabPage(), binding: FoodTabBinding()),
+  GetPage(name: '/food_le', page: () => DbEng()),
   GetPage(name: '/food_first', page: () => const FoodFirstPage(), binding: FoodFirstBinding()),
   GetPage(name: '/food_second', page: () => FoodSecondPage(), binding: FoodSecondBinding()),
   GetPage(name: '/food_add', page: () => FoodAddPage(), binding: FoodAddBinding()),
